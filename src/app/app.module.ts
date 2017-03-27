@@ -11,6 +11,8 @@ import { ScrudListComponent } from './scrud-list/scrud-list.component';
 import { ScrudDetailsComponent } from './scrud-details/scrud-details.component';
 import { ScrudServiceService } from './fm-scrud/scrud-service.service';
 import { ListItemComponent } from './list-item/list-item.component';
+import { WindowService } from './window.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,7 @@ import { ListItemComponent } from './list-item/list-item.component';
     HttpModule,
     NgbModule.forRoot(),
   ],
-  providers: [ScrudServiceService],
+  providers: [ScrudServiceService, WindowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

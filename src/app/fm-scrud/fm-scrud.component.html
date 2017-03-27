@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col-8" [hidden]="!showList">
     <fm-scrud-list></fm-scrud-list>
   </div>
-  <div class="col-4">
+  <div class="col-4" [hidden]="!showDetails">
     <fm-scrud-details [user]="selectedUser"></fm-scrud-details>
   </div>
 </div>
