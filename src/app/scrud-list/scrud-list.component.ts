@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ScrudServiceService } from '../fm-scrud/scrud-service.service';
 
 @Component({
   selector: 'fm-scrud-list',
@@ -6,30 +7,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./scrud-list.component.scss']
 })
 export class ScrudListComponent implements OnInit {
-  @Output() onChangeSelectedUser: EventEmitter<any> = new EventEmitter();
 
-  users : any[] = [
-    {
-      id: 1,
-      name: 'Philip Fulcher'
-    },
-    {
-      id: 2,
-      name: 'Patrick Rogers-Ostema'
-    },
-    {
-      id: 3,
-      name: 'Aaron Jarrete'
-    }
-  ] ;
+  private users : any[] = [];
 
-  constructor() { }
+  constructor( private scrudService: ScrudServiceService) { }
 
   ngOnInit() {
-  }
-
-  selectUser(user: any): void {
-      this.onChangeSelectedUser.emit(user);
+    this.scrudService.users.subscribe(
+      (users) => this.users = users
+    )
   }
 
 }

@@ -9,13 +9,15 @@ import { FmScrudComponent } from './fm-scrud/fm-scrud.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrudListComponent } from './scrud-list/scrud-list.component';
 import { ScrudDetailsComponent } from './scrud-details/scrud-details.component';
-
+import { ScrudServiceService } from './fm-scrud/scrud-service.service';
+import { ListItemComponent } from './list-item/list-item.component';
 @NgModule({
   declarations: [
     AppComponent,
     FmScrudComponent,
     ScrudListComponent,
-    ScrudDetailsComponent
+    ScrudDetailsComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { ScrudDetailsComponent } from './scrud-details/scrud-details.component';
     HttpModule,
     NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [ScrudServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

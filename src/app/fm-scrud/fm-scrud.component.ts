@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrudServiceService } from './scrud-service.service';
 
 @Component({
   selector: 'app-fm-scrud',
@@ -8,14 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class FmScrudComponent implements OnInit {
   selectedUser : any;
 
-  constructor() { }
+  constructor(private scrudServiceService : ScrudServiceService) { }
 
   ngOnInit() {
-    
-  }
-
-  updateSelectedUser(user) {
-    this.selectedUser = user;
+    this.scrudServiceService.selectedUser.subscribe(
+      selectedUser => this.selectedUser = selectedUser
+    )
   }
 
 }
