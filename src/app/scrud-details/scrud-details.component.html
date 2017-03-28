@@ -3,7 +3,8 @@
     <h4 class="card-title">User Details</h4>
     <p class="card-text">
       id: {{user.id}} <br>
-      name: {{user.name}}
+      name: {{user.name}}<br>
+      <button [hidden]="!showBackButton" (click)="goBack()">Go Back</button>
     </p>
   </div>
 </div>

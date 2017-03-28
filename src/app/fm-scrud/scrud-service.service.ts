@@ -19,7 +19,7 @@ export class ScrudServiceService {
     }
   ];
 
-  private defaultUser = {
+  public defaultUser = {
     id: 0,
     name: 'New User'
   };

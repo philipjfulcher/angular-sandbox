@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class WindowService {
@@ -31,20 +33,30 @@ export class WindowService {
     }
   ];
 
-  currentWidth : Number;
-  currentSize: Object;
+  private _currentWidth : Number;
+  private _currentSize: String;
+
+  private currentWidthSubject: BehaviorSubject<any> = new BehaviorSubject(0);
+
+  public currentWidth: Observable<any> = this.currentWidthSubject.asObservable();
+
+  private currentSizeSubject: BehaviorSubject<any> = new BehaviorSubject('');
+
+  public currentSize: Observable<any> = this.currentSizeSubject.asObservable();
   
   constructor() { 
     this.setWidth();
-    window.addEventListener("resize", function() {
-        console.log("Resize event!");
-    });
+    window.addEventListener("resize", (event) => this.setWidth());
   }
 
   setWidth() {
-    this.currentWidth = window.innerWidth;
+    this._currentWidth = window.innerWidth;
 
-    this.currentSize = this.breakpoints.filter(breakpoint => this.currentWidth > breakpoint.begin && this.currentWidth < breakpoint.end)[0].name;
+    this._currentSize = this.breakpoints.filter(breakpoint => this._currentWidth > breakpoint.begin && this._currentWidth < breakpoint.end)[0].name;
+
+    this.currentWidthSubject.next(this._currentWidth);
+    this.currentSizeSubject.next(this._currentSize);
+
   }
 
 }
