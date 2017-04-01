@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { UserService } from '../user.service';
+
 
 @Injectable()
 export class ScrudServiceService {
@@ -34,8 +36,13 @@ export class ScrudServiceService {
 
   public selectedUser: Observable<any> = this.selectedUserSubject.asObservable();
 
-  constructor() { 
+  constructor(private userService : UserService) { 
     this._users.next(this.storedUsers);
+
+    this.userService.getUsers()
+        .then( response => this._users.next(response.json().value) );
+        
+
   }
 
   selectUser(user) {

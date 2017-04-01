@@ -12,14 +12,17 @@ import { ScrudDetailsComponent } from './scrud-details/scrud-details.component';
 import { ScrudServiceService } from './fm-scrud/scrud-service.service';
 import { ListItemComponent } from './list-item/list-item.component';
 import { WindowService } from './window.service';
-
+import { FullHeightDirective } from './full-height.directive';
+import { OAuthService } from 'angular2-oauth2/oauth-service';
+import { UserService } from './user.service';
 @NgModule({
   declarations: [
     AppComponent,
     FmScrudComponent,
     ScrudListComponent,
     ScrudDetailsComponent,
-    ListItemComponent
+    ListItemComponent,
+    FullHeightDirective
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { WindowService } from './window.service';
     HttpModule,
     NgbModule.forRoot(),
   ],
-  providers: [ScrudServiceService, WindowService],
+  providers: [ScrudServiceService, WindowService, OAuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

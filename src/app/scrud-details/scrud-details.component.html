@@ -1,9 +1,11 @@
-<div class="card">
+<div class="card" fmFullHeight>
   <div class="card-block">
     <h4 class="card-title">User Details</h4>
     <p class="card-text">
       id: {{user.id}} <br>
-      name: {{user.name}}<br>
+      status: {{user.status}} <br>
+      name: {{user.firstName}} {{ user.lastName }}<br>
+      username: {{user.userName}}
       <button [hidden]="!showBackButton" (click)="goBack()">Go Back</button>
     </p>
   </div>
