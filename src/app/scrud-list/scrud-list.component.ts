@@ -8,7 +8,7 @@ import { ScrudServiceService } from '../fm-scrud/scrud-service.service';
 })
 export class ScrudListComponent implements OnInit {
 
-  private users : any[] = [];
+  users : any[] = [];
 
   constructor( private scrudService: ScrudServiceService) { }
 
@@ -16,6 +16,10 @@ export class ScrudListComponent implements OnInit {
     this.scrudService.users.subscribe(
       (users) => this.users = users
     )
+  }
+
+  login() {
+
   }
 
 }

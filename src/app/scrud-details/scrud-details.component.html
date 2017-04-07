@@ -1,12 +1,14 @@
 <div class="card" fmFullHeight>
   <div class="card-block">
     <h4 class="card-title">User Details</h4>
-    <p class="card-text">
-      id: {{user.id}} <br>
-      status: {{user.status}} <br>
-      name: {{user.firstName}} {{ user.lastName }}<br>
-      username: {{user.userName}}
+    <div class="card-text">
+      
+      <form>
+        <input name="firstName" type="text" [(ngModel)]="user.firstName">
+        <input name="lastName" type="text" [(ngModel)]="user.lastName">
+      </form>
+
       <button [hidden]="!showBackButton" (click)="goBack()">Go Back</button>
-    </p>
+    </div>
   </div>
 </div>

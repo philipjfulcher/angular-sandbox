@@ -1,1 +1,7 @@
-  <li class="list-group-item" [ngClass]="{'active': isSelected}" (click)="selectUser(user)">{{user.firstName}} {{user.lastName}} - {{user.userName}}</li>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" [ngClass]="{'active': isSelected}" (click)="selectUser(user)">
+    <p class="mb-1">{{user.userName}}</p>
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{user.firstName}} {{user.lastName}}</h5>
+      <small>STATUS: {{user.status}}</small>
+    </div>
+  </a>

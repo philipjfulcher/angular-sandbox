@@ -1,9 +1,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <h1>
-        {{title}}
-      </h1>
+      
+      <div class="d-flex w-100 justify-content-between">
+        <h1 class="mb-1">
+          {{title}}
+        </h1>
+        <button class="btn" (click)="login()">Login</button>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <app-fm-scrud></app-fm-scrud>
     </div>
   </div>

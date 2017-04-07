@@ -47,10 +47,10 @@ export class AppComponent {
         console.debug("logged in");
         console.debug(context);
     }});
-
-        var accessToken = this.oauthService.getAccessToken();
-        // if(!accessToken) {
-        //  this.oauthService.initImplicitFlow();
-        // }
+     
   }
+
+   login() {
+      this.oauthService.initImplicitFlow();
+    } 
 }
