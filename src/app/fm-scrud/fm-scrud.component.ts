@@ -17,7 +17,6 @@ export class FmScrudComponent implements OnInit {
   ngOnInit() {
     this.scrudServiceService.selectedUser.subscribe(
       selectedUser => {
-        this.selectedUser = selectedUser;
         if(this.isResponsive) {
           if(selectedUser === this.scrudServiceService.defaultUser) {
             this.showList = true;

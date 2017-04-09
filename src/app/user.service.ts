@@ -6,18 +6,19 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
+  ffseUrl = "https://ffse-sprint.hachtest.com/odata/v15.1/Users";
+  headers = new Headers({
+    "Authorization": "Bearer " + this.oauthService.getAccessToken()
+  });
 
   constructor(private http : Http, private oauthService : OAuthService) { }
 
   getUsers() {
-    let ffseUrl = "https://ffse-sprint.hachtest.com/odata/v15.1/Users";
+    return this.http.get(this.ffseUrl, {headers: this.headers}).toPromise();           
+  }
 
-    let headers = new Headers({
-      "Authorization": "Bearer " + this.oauthService.getAccessToken()
-    });
-
-    return this.http.get(ffseUrl, {headers: headers}).toPromise();
-              
+  saveUser(user) {
+    return this.http.post(this.ffseUrl, user, {headers: this.headers}).toPromise();           
   }
 
 }
